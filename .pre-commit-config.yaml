@@ -1,0 +1,103 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_language_version:
+    python: python3.9
+repos:
+    # probably should have a better fix for this
+    # - repo: local
+    #   hooks:
+    #       - id: conda-env
+    #         name: conda-env
+    #         entry: bash -c "conda env export --from-history > environment.yaml"
+    #         language: system
+    #         always_run: true
+    #         require_serial: true
+    #         pass_filenames: false
+    - repo: https://github.com/pre-commit/mirrors-prettier
+      rev: 'v2.5.1'
+      hooks:
+          - id: prettier
+            exclude_types: [python]
+            additional_dependencies:
+                - '@prettier/plugin-xml'
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.1.0
+      hooks:
+          - id: check-yaml
+          - id: check-json
+          - id: check-docstring-first
+          - id: check-added-large-files
+          - id: check-merge-conflict
+          - id: check-toml
+          - id: pretty-format-json
+          - id: debug-statements
+          - id: fix-encoding-pragma
+          - id: detect-aws-credentials
+          - id: detect-private-key
+    - repo: https://github.com/psf/black
+      rev: 22.1.0
+      hooks:
+          - id: black
+          - id: black-jupyter
+            # It is recommended to specify the latest version of Python
+            # supported by your project here, or alternatively use
+            # pre-commit's default_language_version, see
+            # https://pre-commit.com/#top_level-default_language_version
+            #
+            # language_version: python3.9
+    - repo: https://github.com/jendrikseipp/vulture
+      rev: v2.3
+      hooks:
+          - id: vulture
+    - repo: https://github.com/nbQA-dev/nbQA
+      rev: 1.2.3
+      hooks:
+          - id: nbqa-isort
+          - id: nbqa-mypy
+          - id: nbqa-pylint
+    - repo: https://github.com/pycqa/isort
+      rev: 5.10.1
+      hooks:
+          - id: isort
+    - repo: https://github.com/PyCQA/pylint
+      rev: v2.12.2
+      hooks:
+          - id: pylint
+    - repo: https://github.com/PyCQA/bandit
+      rev: 1.7.2
+      hooks:
+          - id: bandit
+    - repo: https://github.com/datarootsio/databooks
+      rev: 0.1.14
+      hooks:
+          - id: databooks
+    - repo: https://github.com/pre-commit/mirrors-mypy
+      rev: v0.931
+      hooks:
+          - id: mypy
+            args: [--no-strict-optional, --ignore-missing-imports]
+            additional_dependencies: [tokenize-rt==3.2.0]
+    - repo: https://github.com/executablebooks/mdformat
+      rev: 0.7.13
+      hooks:
+          - id: mdformat
+            # Optionally add plugins
+            additional_dependencies:
+                - mdformat-gfm
+                - mdformat-black
+    - repo: https://github.com/sqlfluff/sqlfluff
+      rev: 0.10.0
+      hooks:
+          - id: sqlfluff-fix
+    - repo: https://github.com/kynan/nbstripout
+      rev: 0.5.0
+      hooks:
+          - id: nbstripout
+    - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+      rev: v1.2.4
+      hooks:
+          - id: python-safety-dependencies-check
+    - repo: https://github.com/zricethezav/gitleaks
+      rev: v8.2.7
+      hooks:
+          - id: gitleaks
