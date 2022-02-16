@@ -12,7 +12,7 @@ Once you have both Anaconda and git-lfs simply run:
 
 ```sh
 python bootstrap.py
-conda activate [env-name]
+conda activate [env-name] # <-- this defaults to the GH user/repo name during bootstrap.py
 ```
 
 ## Structure
