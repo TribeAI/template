@@ -1,6 +1,19 @@
 [![gh-template](https://img.shields.io/badge/use%20this-template-blue?logo=github)](https://github.com/TribeAI/template/generate)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
+## Getting Started
+
+Most of the dependencies for the template are in [environment.yml](environment.yml) and will be installed when you create and activate the `conda` environment. There are a few things that you need to install and setup to be able to do that however.
+
+1. Install [Anaconda](https://www.anaconda.com/products/individual) (or [miniconda](https://docs.conda.io/en/latest/miniconda.html)) if you don't have it already (and make sure to `conda init`).
+1. Install the [Git Large File Storage](https://git-lfs.github.com/) extension.
+
+Once you have both Anaconda and git-lfs simply run:
+
+```sh
+python bootstrap.py
+```
+
 ## Structure
 
 This is simply a recommended starting scaffold. None of the tooling with this template requires any specific naming/folder conventions outside of the standard git/Github conventions (like `.gitignore` and the `.github` folder) and Python/conda requirements (like `setup.cfg` and `environment.yml`). Feel free to rearrange this however is optimal for your project.
@@ -17,10 +30,12 @@ This is simply a recommended starting scaffold. None of the tooling with this te
 ├── reports            <- Any output/presentation artifacts (like HTML, PDF, LaTeX, etc.)
 │
 ├── environment.yml    <- `conda` environment file to configure package dependencies
+│                           (created by `bootstrap.py`)
 │
 ├── setup.cfg          <- makes `src/` pip installable so classes/modules can be imported
-│ 
-├── src                <- Source code meant to be imported as modules in notebooks or scipts
+│                           (created by `bootstrap.py`)
+│
+├── src                <- Source code meant to be imported as modules in notebooks or scripts
 │  
 ├── scripts            <- Python files intended to be run from the command line (and not imported)
 │  
