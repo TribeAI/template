@@ -46,28 +46,16 @@ repos:
             # https://pre-commit.com/#top_level-default_language_version
             #
             # language_version: python3.9
-    - repo: https://github.com/jendrikseipp/vulture
-      rev: v2.3
+    - repo: https://github.com/pycqa/flake8
+      rev: '4.0.1'
       hooks:
-          - id: vulture
-    - repo: https://github.com/nbQA-dev/nbQA
-      rev: 1.2.3
-      hooks:
-          - id: nbqa-isort
-          - id: nbqa-mypy
-          - id: nbqa-pylint
-    - repo: https://github.com/pycqa/isort
-      rev: 5.10.1
-      hooks:
-          - id: isort
-    - repo: https://github.com/PyCQA/pylint
-      rev: v2.12.2
-      hooks:
-          - id: pylint
+          - id: flake8
+            additional_dependencies: [flake8-docstrings]
     - repo: https://github.com/PyCQA/bandit
       rev: 1.7.2
       hooks:
           - id: bandit
+            exclude: bootstrap.py
     - repo: https://github.com/datarootsio/databooks
       rev: 0.1.14
       hooks:
@@ -78,6 +66,7 @@ repos:
           - id: mypy
             args: [--no-strict-optional, --ignore-missing-imports]
             additional_dependencies: [tokenize-rt==3.2.0]
+            exclude: bootstrap.py
     - repo: https://github.com/sqlfluff/sqlfluff
       rev: 0.10.0
       hooks:
