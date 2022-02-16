@@ -17,6 +17,7 @@ repos:
       rev: 'v2.5.1'
       hooks:
           - id: prettier
+            exclude: ^.*
             exclude_types: [python]
             additional_dependencies:
                 - '@prettier/plugin-xml'
@@ -77,14 +78,6 @@ repos:
           - id: mypy
             args: [--no-strict-optional, --ignore-missing-imports]
             additional_dependencies: [tokenize-rt==3.2.0]
-    - repo: https://github.com/executablebooks/mdformat
-      rev: 0.7.13
-      hooks:
-          - id: mdformat
-            # Optionally add plugins
-            additional_dependencies:
-                - mdformat-gfm
-                - mdformat-black
     - repo: https://github.com/sqlfluff/sqlfluff
       rev: 0.10.0
       hooks:
@@ -93,10 +86,6 @@ repos:
       rev: 0.5.0
       hooks:
           - id: nbstripout
-    - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-      rev: v1.2.4
-      hooks:
-          - id: python-safety-dependencies-check
     - repo: https://github.com/zricethezav/gitleaks
       rev: v8.2.7
       hooks:

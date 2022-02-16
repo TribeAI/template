@@ -1,7 +1,0 @@
-name: tribe
-dependencies:
-    - python=3.9
-    - ipython
-    - jupyter
-    - pip:
-          - pre-commit
