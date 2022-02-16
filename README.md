@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-Most of the dependencies for the template are in [environment.yml](environment.yml) and will be installed when you create and activate the `conda` environment. There are a few things that you need to install and setup to be able to do that however.
+Most of the dependencies for the template are written to environment.yml in the bootstrap script. There are a few things that you need to install and setup to be able to do that however.
 
 1. Install [Anaconda](https://www.anaconda.com/products/individual) (or [miniconda](https://docs.conda.io/en/latest/miniconda.html)) if you don't have it already (and make sure to `conda init`).
 1. Install the [Git Large File Storage](https://git-lfs.github.com/) extension.
@@ -12,6 +12,7 @@ Once you have both Anaconda and git-lfs simply run:
 
 ```sh
 python bootstrap.py
+conda activate [env-name]
 ```
 
 ## Structure
